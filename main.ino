@@ -17,11 +17,7 @@ void setup() {
   pinMode(4,INPUT);
   pinMode(5,INPUT);
   pinMode(A7,INPUT);
-  rst = verification();
-  if (rst != 0){
-    Serial.print("stop code ...");
-    Serial.print(rst,2);
-  }
+  verification();
 }
 void loop()
 {
@@ -44,6 +40,7 @@ void loop()
   //
   Serial.println(positionX);
   delay(300);
+  
 }
 
 
@@ -54,7 +51,7 @@ int verification(){
   Serial.println( lcd.status(),2);
   lcd.clear();
   lcd.print("Mannete start");
-  //delay(1000);
+  delay(1000);
   lcd.setCursor(0,0); // positionne le curseur à la colonne 0 et à la ligne 2  
   Serial.print("verification Lora ... ");
   if (!LoRa.begin(915E6)){
@@ -70,10 +67,10 @@ int verification(){
 }
 
 void LCDinformation(){
-  /*Serial.print("\nvitesse: ");
+  Serial.print("\nvitesse: ");
   Serial.print("1");
   Serial.print("\t niveau de baterie:");
-  Serial.print("100");*/
+  Serial.print("100");
   lcd.clear();
   lcd.print("vst:");
   lcd.setCursor(4,0);

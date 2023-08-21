@@ -1,5 +1,6 @@
 {
-    "port": "/dev/ttyS0",
-    "configuration": "cpu=atmega328old",
-    "board": "arduino:avr:nano"
+    "port": "/dev/ttyACM0",
+    "board": "arduino:avr:uno",
+    "sketch": "main.ino",
+    "programmer": "stk500"
 }
