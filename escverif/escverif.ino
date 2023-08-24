@@ -18,8 +18,9 @@ const int echoPin3 = ;
 
 
 Adafruit_MPU6050 mpu;
+/*
 Ultrasonic ultrason_g(); // broche echo et trigger ==> (triggerPin, echoPin)
-Ultrasonic ultrason_d(); // broche echo et trigger
+Ultrasonic ultrason_d(); // broche echo et trigger*/
 
 //initialisation des vriable du roll pitch yaw a 0.0
 const double rollSetpoint = 0.0, pitchSetpoint = 0.0, yawSetpoint = 0.0;
@@ -79,7 +80,14 @@ void setup() {
 }
 
 void loop() {
+
+  /*int distance_g = map(ultrason_g.read(), 0, 2000, 0, 1000);
+  int distance_d = map(ultrason_d.read(), 0, 2000, 0, 1000);
+
+  if (distance_d>50 | distance_g>50){continue};
   
+  if (distance_g < 50 | distance_g < 50){continue;};*/
+
   if (LoRa.parsePacket()){
     String receivedData ="";
     while (LoRa.available()) { // reception des valeus de controle du drone 
